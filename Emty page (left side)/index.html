@@ -1,31 +1,55 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Side Bar</title>
-	<link rel="stylesheet" href="css/leftside.css">
+  <meta charset="UTF-8">
+  <title>Side Bar</title>
+  <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-   <div class="wrapper">
-      <div class="sidebar">
-         <h2>LOGO</h2>
-         <ul>
-               <li><a href="#"><img class="fas"src="icons/contacts.svg">Contacts</a></li>
-               <li><a href="#"><img class="fas"src="icons/buy.svg">Purchase</a></li>
-               <li><a href="#"><img class="fas"src="icons/sells.svg">Sells</a></li>
-               <li><a href="#"><img class="fas"src="icons/stock.svg">Stock</a></li>
-               <li><a href="#"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
-         </ul> 
-         <div class="our_team">
-            <ul>
-               <li class="ourteam"><a href="#"><img src="icons/team.svg" style="width: 25px; padding-right: 5px;">Our Team</i></a></li>
-            </ul>
-         </div>
-      </div>
-      <div class="main_content">
-         <div class="header">search bar here</div>  
-         </div>
-   </div>
+<form action="" class="search-bar">
+	<input type="search" name="search" pattern=".*\S.*" required>
+	<button class="search-btn" type="submit">
+		<span>Search</span>
+	</button>
+</form>
+  <div class="wrapper">
+    <div class="sidebar">
+      <h2>LOGO</h2>
+      <ul>
+        <li>
+          <a href="#"><span>Contacts</span></a>
+          <ul class="nav-flyout">
+            
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="">purchase</span></a>
+          <ul class="nav-flyout">
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="">sells</span></a>
+          <ul class="nav-flyout">
+          
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="">stock</span></a>
+          <ul class="nav-flyout">
+            
+          </ul>
+        </li>
+        <li>
+          <a href="#"><span class="">expired products</span></a>
+          <ul class="nav-flyout">
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <ul>
+      
+    </ul>
+  </div>
 </body>
 </html>
