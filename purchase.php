@@ -16,7 +16,7 @@
       <div class="sidebar">
          <a href="#"><img class="logo" src="img/logo.png"></a>
          <ul>
-               <li><a  href="index.php"><img class="fas"src="icons/contacts.svg">Home</a></li>
+               <li><a  href="index.php"><img class="fas"src="icons/home.svg">Home</a></li>
                <li><a href="contacts.php"><img class="fas"src="icons/contacts.svg">Contacts</a></li>
                <li class="active"><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
                <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
