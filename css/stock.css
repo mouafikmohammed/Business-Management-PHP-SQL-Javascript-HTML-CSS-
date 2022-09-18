@@ -1,0 +1,40 @@
+/* stock */
+
+table {
+  margin-left: 25px;
+	width: 95%;
+	border-collapse: collapse;
+}
+
+th,td {
+	padding: 15px;
+   border: 1px solid black;
+	background-color: rgba(5, 7, 8, 0.2);
+	color: rgb(7, 8, 8);
+	font-size: 17px;
+}
+
+th {
+	text-align: left;
+}
+
+th {
+	background: rgba(255, 42, 42, 0.299);
+	color: white;
+}
+
+td {
+  background-color: #fafafa8f;
+  backdrop-filter: blur(20px);
+}
+		
+	
+
+
+
+
+
+
+
+
+	
