@@ -25,7 +25,7 @@
          </ul> 
          <div class="our_team">
             <ul>
-               <li class="ourteam"><a href="ourteam.html"><img src="icons/team.svg">Our Team</i></a></li>
+               <li class="ourteam"><a href="ourteam.php"><img src="icons/team.svg">Our Team</i></a></li>
             </ul>
          </div>
       </div>
