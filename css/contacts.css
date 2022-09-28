@@ -1,17 +1,15 @@
 /* Contacts and Notes */
 .contact {
-  width: 50%;
-  height: 100%;
+  width: 95%;
   float: left;
   border-radius: 20px;
-  margin-left:  10px;
+  margin-left:  25px;
 }
 .note {
-  width: 45%;
-  height: 100%;
-  float: right;
+  width: 95%;
+  float: left;
   border-radius: 20px;
-  margin-right: 25px;
+  margin-left: 25px;
 }
 .contact, .note {
   margin-top: 10px;
@@ -46,11 +44,12 @@ input:focus, textarea:focus{
   border: none;
   border-radius: 6px;
   padding: 9px;
-  margin-top: 19px;
+  margin-top: 25px;
   font-size: 17px;
 }
 .info input {
   padding: 4px;
+  margin-right: 35px;
   font-size: 15px;
   border: none;
   font-family: sans-serif;
@@ -59,7 +58,8 @@ input:focus, textarea:focus{
   border-collapse: collapse;
   width: 95%;
   margin: auto;
-  margin-top: 103px;
+  margin-top: 40px;
+  margin-bottom: 20px;
 }
 
 .contbl th {
@@ -84,9 +84,12 @@ input:focus, textarea:focus{
 .note-box {
   border: Opx solid black;
   padding: 15px;
-  margin-top: 30px;
+  margin-top: 15px;
   margin-bottom: 20px;
   font-size: 17px;
+}
+.labelnote {
+  margin-left: 40px;
 }
 .note-box input,textarea {
   padding: 4px;
@@ -95,7 +98,7 @@ input:focus, textarea:focus{
   font-family: sans-serif;
 }
 textarea{
-  vertical-align: text-top;
+  vertical-align: top;
   width: 300px;
 }
 .note-box button {
