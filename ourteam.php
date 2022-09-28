@@ -1,3 +1,14 @@
+<?php 
+session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+	$user_data = check_login($con);
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,12 +27,15 @@
       <div class="sidebar">
          <a href="#"><img class="logo" src="img/logo.png"></a>
          <ul>
-            <li><a  href="index.php"><img class="fas"src="icons/home.svg">Home</a></li>
+            <li><a href="search.php"><img class="fas"src="icons/search.svg">Search</a></li>
+            <li><a  href="index.php"><img class="fas"src="icons/dashboard.svg">DashBoard</a></li>
             <li><a href="contacts.php"><img class="fas"src="icons/contacts.svg">Contacts</a></li>
+            <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
             <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
             <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
             <li><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
             <li><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
+            <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>
          </ul> 
          <div class="our_team">
             <ul>

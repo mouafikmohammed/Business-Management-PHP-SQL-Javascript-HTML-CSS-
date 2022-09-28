@@ -1,3 +1,17 @@
+<?php 
+   session_start();
+
+	include("connection.php");
+	include("functions.php");
+
+	$user_data = check_login($con);
+
+   # ------------- code for Table --------------------
+
+   $res= mysqli_query($con,"select * from purchase");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,12 +31,15 @@
        
          <a href="#"><img class="logo" src="img/logo.png"></a>
          <ul>
-               <li><a  href="index.php"><img class="fas"src="icons/home.svg">Home</a></li>
+               <li><a href="search.php"><img class="fas"src="icons/search.svg">Search</a></li>
+               <li><a  href="index.php"><img class="fas"src="icons/dashboard.svg">DashBoard</a></li>
                <li><a href="contacts.php"><img class="fas"src="icons/contacts.svg">Contacts</a></li>
+               <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
                <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
                <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
                <li class="active"><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
                <li><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
+               <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>
          </ul>
          <div class="our_team">
             <ul>
@@ -38,25 +55,26 @@
             <table>
                   <tr> 
                      <th>Reference</th>
-                     <th>Designation</th>
+                     <th>Name</th>
+                     <th>Company Name</th>
+                     <th>Email</th>
                      <th>Quantity</th>
-                     <th>price</th>
-                     <th>total </th> 
+                     <th>Price</th>
+                     <th>total Price</th>
                   </tr>
-                  <tr>
-                     <td>Cell 1</td>
-                     <td>Cell 2</td>
-                     <td>Cell 3</td>
-                     <td>Cell 4</td>
-                     <td>Cell 5</td>
-                  </tr>
-                  <tr>
-                     <td>Cell 1</td>
-                     <td>Cell 2</td>
-                     <td>Cell 3</td>
-                     <td>Cell 4</td>
-                     <td>Cell 5</td>
-                  </tr>
+                  <?php
+                     while ($row = mysqli_fetch_array($res)){
+                        echo "<tr>";
+                        echo "<td>".$row['reference']."</td>";
+                        echo "<td>".$row['name']."</td>";
+                        echo "<td>".$row['companyname']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td>".$row['quantity']."</td>";
+                        echo "<td>".$row['price']."</td>";
+                        echo "<td>".$row['price']*$row['quantity']."</td>";
+                        echo "</tr>";
+                     }
+                  ?>
             </table>
          </form>
       </div>  
