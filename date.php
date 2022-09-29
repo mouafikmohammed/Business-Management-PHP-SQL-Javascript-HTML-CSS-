@@ -7,6 +7,11 @@ $exp=strtotime($exp_date);
 $td=strtotime($today_date);
 
 
-
+if($td$exp){
+    echo expired;
+}
+else{
+    echo not expired;
+}
 
 ?>
