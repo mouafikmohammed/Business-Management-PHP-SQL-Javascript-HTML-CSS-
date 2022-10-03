@@ -1,3 +1,4 @@
+
 <?php 
 session_start();
 
@@ -6,8 +7,11 @@ session_start();
 
 	$user_data = check_login($con);
 
+   # ------------- code for Table -------------------- 
+   $exp_date= date("Y-m-d",strtotime('-7 day'));
+   
+   $res= mysqli_query($con,"select * from purchase where date between '2000-07-02' and '$exp_date' ");
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -48,20 +52,30 @@ session_start();
          </div>
          <form method='post' id="table"> 
             <table>
-               <tr>
-                  <th>Ref</th>
-                  <th>Designation</th>
+               <tr> 
+                  <th>Reference</th>
+                  <th>Name</th>
+                  <th>Company Name</th>
+                  <th>Email</th>
                   <th>Quantity</th>
                   <th>Price</th>
-                  <th>Total</th>
+                  <th>total Price</th>
+                  <th>Date</th>
                </tr>
-               <tr>
-                  <td>empty</td>
-                  <td>empty</td>
-                  <td>empty</td>
-                  <td>empty</td>
-                  <td>empty</td>
-               </tr>
+               <?php
+                     while ($row = mysqli_fetch_array($res)){
+                        echo "<tr>";
+                        echo "<td>".$row['reference']."</td>";
+                        echo "<td>".$row['name']."</td>";
+                        echo "<td>".$row['companyname']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td>".$row['quantity']."</td>";
+                        echo "<td>".$row['price']."</td>";
+                        echo "<td>".$row['price']*$row['quantity']."</td>";
+                        echo "<td>".$row['date']."</td>";
+                        echo "</tr>";
+                     }
+                  ?>
             </table>
          </form>
       </div>
