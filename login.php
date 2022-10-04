@@ -36,10 +36,10 @@ session_start();
 				}
 			}
 			
-			echo "wrong username or password!";
+			echo '<script>alert("wrong username or password!")</script>';
 		}else
 		{
-			echo "wrong username or password!";
+			echo '<script>alert("wrong username or password!")</script>';
 		}
 	}
 
