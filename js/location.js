@@ -4,7 +4,7 @@ window.weatherWidgetConfig.push({
    apiKey: "J3NYBVUJEPZFZWL5TLL9EAZUU", //Sign up for your personal key
    location: "Morocco", //Enter an address
    unitGroup: "metric", //"us" or "metric"
-   forecastDays: 5, //how many days forecast to show
+   forecastDays: 7, //how many days forecast to show
    title: "Morocco", //optional title to show in the 
    showTitle: true,
    showConditions: true

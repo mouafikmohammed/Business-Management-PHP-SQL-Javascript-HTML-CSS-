@@ -1,10 +1,9 @@
 main{
-	margin-top: 80px;
+	margin-top: 10px;
 	padding: 2rem 1.5rem;
 }
 .cards{
 	display: grid;
-	
 	grid-template-columns: repeat(4, 1fr);
 	grid-gap: 2rem;
 	margin-top: 1rem;
@@ -13,9 +12,15 @@ main{
 	display: flex;
 	background-color: #fff;
 	justify-content: space-between;
-	padding: 2rem;
+	padding: 1rem;
 	border-radius: 10px;
 	box-shadow: 2px 5px 10px 2px rgb(0 0 0 / 10%);
+}
+.card-single h4{
+	color: black;
+}
+.card-single img{
+	margin-right: 0px;
 }
 .card-single span:first-child{
 	color: #f8e80c;

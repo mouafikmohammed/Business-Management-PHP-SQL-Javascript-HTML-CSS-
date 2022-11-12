@@ -72,7 +72,7 @@ session_start();
    </div>
    <div class="wrapper">
       <div class="sidebar">
-         <a href="#"><img class="logo" src="img/logo.png"></a>
+         <!-- <a href="#"><img class="logo" src="img/logo.png"></a> -->
          <ul>
                <li><a href="search.php"><img class="fas"src="icons/search.svg">Search</a></li>
                <li><a  href="index.php"><img class="fas"src="icons/dashboard.svg">DashBoard</a></li>

@@ -70,7 +70,8 @@ session_start();
 
          <input type="submit" class="loginbutton" value="Login">
          <p class="not">Don't have an account?</p>
-         <a href="signup.php" class="signupbutton">Signup</a>
+			<p class="admin">Ask admin for username and password</p>
+          <!-- <a href="signup.php" class="signupbutton">Signup</a> -->
       </form>
    </div>
 </body>
