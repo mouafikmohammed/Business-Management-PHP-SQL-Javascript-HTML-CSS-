@@ -8,6 +8,7 @@ session_start();
 
    $spac = "&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;";
 
+
 ?>
 
 
@@ -62,15 +63,19 @@ session_start();
                            require 'connection.php';
                            $query = "SELECT * FROM sells";  
                            $query_run = mysqli_query($con, $query);
-
-                           # $row = mysqli_num_rows($query_run);
-                           $row = mysqli_fetch_array($query_run);
-
-                           $tot = $row['price']*$row['quantity'];
-                           while($row = mysqli_fetch_array($query_run)){
-                              $tot1 = $tot + $row['price']*$row['quantity'];
+                           # row = mysqli_num_rows($query_run);
+                           $row1 = mysqli_fetch_array($query_run);
+                           # ----
+                           if($row1 = mysqli_fetch_array($query_run) > 0){
+                              $sale = $row1['price']*$row1['quantity'];
+                              while($row1 = mysqli_fetch_array($query_run)){
+                                 $sale += $row1['price']*$row1['quantity'];
+                                 
+                              }
+                              echo '<h4> total sales: '.$sale.'$</h4>';
+                           }else{
+                              echo '<h4> total sales: 0$</h4>';
                            }
-                           echo '<h4> total sales: '.$tot1.'$</h4>';
                         ?>
                         <small>sales</small>
                         <br><br>
@@ -109,16 +114,23 @@ session_start();
                            require 'connection.php';
                            $query = "SELECT * FROM purchase";
                            $query_run = mysqli_query($con, $query);
+                           # ----
+                           $rowp = mysqli_fetch_array($query_run);
+                           # ----
+                           if($rowp = mysqli_fetch_array($query_run) > 0){
 
-                           $row = mysqli_fetch_array($query_run);
+                              $purchase = $rowp['price']*$rowp['quantity'];
+                              while($rowp = mysqli_fetch_array($query_run)){
+                                 $purchase += $rowp['price']*$rowp['quantity'];
+                              }
+                              echo '<h4> total purchases: '.$purchase.'$</h4>';
 
-                           $purchase = $row['price']*$row['quantity'];
-                           while($row = mysqli_fetch_array($query_run)){
-                              $purchase1 = $purchase + $row['price']*$row['quantity'];
+                           }else{
+                              echo '<h4> total purchases: 0$</h4>';
                            }
-                           echo '<h4> total purchases: '.$purchase1.'$</h4>';
                         ?>
                         <small>purchase</small>
+                        <br><br>
                      </div>
                      <div>
                         <span class="fa fa-newspaper-o"></span>
@@ -213,7 +225,7 @@ session_start();
                   </div>
                </a>
 
-               <a href="#">
+               <a href="emails.php">
                   <div class="card-single">
                      <img src="img/email.png" width="30" height="30">
                      <div>

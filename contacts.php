@@ -77,41 +77,40 @@ session_start();
          </div>
       </div>
       <div class="main_content">
-         <div class="header">Contacts</div>
-
-            <!--Contacts-->
-            <div class="contact">
-               <h2> Contacts </h2>
-                  <form method='post'>
-                     <div class="info">
-                        <label>Name</label>
-                        <input type="text" name="name" placeholder="name or company name" required>
-                        <label> Email </label>
-                        <input type="email" name="email" placeholder="email">
-                        <label>Phone</label>
-                        <input type="text" name="phone" placeholder="phone number">
-                        <br>
-                        <button name="add">ADD</button>
-                        <button name="del">Del</button>
-                     </div>
-                  </form>
-                  <table class="contbl">
-                     <tr>
-                        <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th>
-                     </tr>
-                     <?php
-                     while ($row = mysqli_fetch_array($res)){
-                        echo "<tr>";
-                        echo "<td>".$row['name']."</td>";
-                        echo "<td>".$row['email']."</td>";
-                        echo "<td>".$row['phone']."</td>";
-                        echo "</tr>";
+         <div class="header">Contacts</div> 
+         <!--Contacts-->
+         <div class="contact">
+            <h2> Contacts </h2>
+            <form method='post'>
+               <div class="info">
+                   <label>Name</label>
+                  <input type="text" name="name" placeholder="name or company name" required>
+                  <label> Email </label>
+                  <input type="email" name="email" placeholder="email">
+                  <label>Phone</label>
+                  <input type="text" name="phone" placeholder="phone number">
+                  <br>
+                  <button name="add">ADD</button>
+                  <button name="del">Del</button>
+               </div>
+            </form>
+            <table class="contbl">
+               <tr>
+                  <th>Name</th>
+                  <th>Email</th>
+                  <th>Phone</th>
+               </tr>
+               <?php
+                  while ($row = mysqli_fetch_array($res)){
+                     echo "<tr>";
+                     echo "<td>".$row['name']."</td>";
+                     echo "<td>".$row['email']."</td>";
+                     echo "<td>".$row['phone']."</td>";
+                     echo "</tr>";
                      }
-                     ?>
-                  </table>
-            </div>
+               ?>
+            </table>
+         </div>
       </div>
 </body>
 </html>
