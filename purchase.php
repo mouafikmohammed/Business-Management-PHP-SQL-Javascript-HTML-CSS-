@@ -47,7 +47,7 @@ session_start();
 
    #--------delete db from purchase---------------
    if(isset($_POST['del'])){
-      $sqls= "delete from purchase where reference='$reference'";
+      $sqls= "DELETE from purchase where reference='$reference'";
       mysqli_query($con,$sqls);
       header("location: purchase.php");
    }

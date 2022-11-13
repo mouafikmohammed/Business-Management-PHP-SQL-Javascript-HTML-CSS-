@@ -1,4 +1,10 @@
 <?php
+
+#-----------------gmail table----------------------
+$res= mysqli_query($con,"select * from gmail");
+$row = mysqli_fetch_array($res);
+
+
 //Import PHPMailer classes into the global namespace
 //These must be at the top of your script, not inside a function
 use PHPMailer\PHPMailer\PHPMailer;
@@ -12,14 +18,14 @@ require 'mail/autoload.php';
 $mail = new PHPMailer(true);
 
 
-//Server settings
-$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      //Enable verbose debug output
+//---------Server settings-----------------
+//$mail->SMTPDebug = SMTP::DEBUG_SERVER;                    //Enable verbose debug output
 $mail->isSMTP();                                            //Send using SMTP
 $mail->Host       = 'smtp.gmail.com';                       //Set the SMTP server to send through
 $mail->SMTPAuth   = true;                                   //Enable SMTP authentication
-$mail->Username   = 'mouafikmohammed03@gmail.com';              //SMTP username
-$mail->Password   = 'my secret code';                           //SMTP password
-$mail->SMTPSecure = 'ssl';            //Enable implicit TLS encryption
+$mail->Username   = $row['email'];          //SMTP username
+$mail->Password   = $row['password'];                     //SMTP password
+$mail->SMTPSecure = 'ssl';                                  //Enable implicit TLS encryption
 $mail->Port       = 465;                                    //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
 
 

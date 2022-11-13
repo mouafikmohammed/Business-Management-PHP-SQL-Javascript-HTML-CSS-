@@ -50,7 +50,8 @@ session_start();
       <div class="main_content">
          <div class="header">DashBoard</div>
          <!------------------------------------------------------->
-         <div class="weatherWidget"></div> <!--this div for weather-->
+         <!--this div for weather-->
+         <!-- <div class="weatherWidget"></div>  -->
          <!--write here the Dashboard code-->
          <main>
 				<div class="cards" >
@@ -63,18 +64,18 @@ session_start();
                            require 'connection.php';
                            $query = "SELECT * FROM sells";  
                            $query_run = mysqli_query($con, $query);
-                           # row = mysqli_num_rows($query_run);
+                           $row_num = mysqli_num_rows($query_run);
                            $row1 = mysqli_fetch_array($query_run);
                            # ----
-                           if($row1 = mysqli_fetch_array($query_run) > 0){
-                              $sale = $row1['price']*$row1['quantity'];
+                           if($row_num > 0){
+                              $a = $row1['price']*$row1['quantity'];
+                              $b = 0;
                               while($row1 = mysqli_fetch_array($query_run)){
-                                 $sale += $row1['price']*$row1['quantity'];
-                                 
-                              }
-                              echo '<h4> total sales: '.$sale.'$</h4>';
+                                 $b += $row1['price']*$row1['quantity'];}
+                              $c = $a + $b;
+                              echo '<h4> total sales: '.$c.'$</h4>';
                            }else{
-                              echo '<h4> total sales: 0$</h4>';
+                              echo '<h4> total sales: NAN</h4>';
                            }
                         ?>
                         <small>sales</small>
@@ -114,19 +115,18 @@ session_start();
                            require 'connection.php';
                            $query = "SELECT * FROM purchase";
                            $query_run = mysqli_query($con, $query);
-                           # ----
+                           $rowp_num = mysqli_num_rows($query_run);
                            $rowp = mysqli_fetch_array($query_run);
                            # ----
-                           if($rowp = mysqli_fetch_array($query_run) > 0){
-
-                              $purchase = $rowp['price']*$rowp['quantity'];
+                           if($rowp_num > 0){
+                              $ap = $rowp['price']*$rowp['quantity'];
+                              $bp = 0;
                               while($rowp = mysqli_fetch_array($query_run)){
-                                 $purchase += $rowp['price']*$rowp['quantity'];
-                              }
-                              echo '<h4> total purchases: '.$purchase.'$</h4>';
-
+                                 $bp += $rowp['price']*$rowp['quantity'];}
+                              $cp = $ap + $bp;
+                              echo '<h4> total purchases: '.$cp.'$</h4>';
                            }else{
-                              echo '<h4> total purchases: 0$</h4>';
+                              echo '<h4> total purchases: NAN</h4>';
                            }
                         ?>
                         <small>purchase</small>
@@ -212,7 +212,7 @@ session_start();
                   </div>
                </a>
 
-               <a href="#">
+               <a href="settings.php">
                   <div class="card-single">
                      <img src="img/setting.png" width="30" height="30">
                      <div>
