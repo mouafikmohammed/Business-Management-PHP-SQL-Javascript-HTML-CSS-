@@ -199,7 +199,7 @@ session_start();
                   </div>
                </a>
 
-               <a href="#">
+               <a href="pdfpage.php">
                   <div class="card-single">
                      <img src="img/pdf.png" width="30" height="30">
                      <div>
