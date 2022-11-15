@@ -28,7 +28,7 @@ td {
   backdrop-filter: blur(20px);
 }
 		
-/*this for pdfoage.php*/
+/*this for pdfpage.php*/
 .label-table {
 	color: white;
 	font-size: 15px;
@@ -47,7 +47,7 @@ option{
 	color: black;
 	border: none;
 }
-form {
+.form-pdfpage {
 	border: 1px solid rgb(0, 0, 0);
 	background-color: rgba(255, 42, 42, 0.299);
 	width: 40%;
@@ -55,7 +55,7 @@ form {
 	margin-top: 30px;
 	padding: 10px;
 }
-form button {
+.form-pdfpage button{
 	border: 1px solid rgb(0, 0, 0);
 	margin-left: 20px;
 	color: white;

@@ -1,4 +1,4 @@
-/*add email and name and password*/
+/*add email and name and password----- and also for other_settings*/
 #password,#name,#email {
    padding: 4px;
    border: none;
@@ -22,7 +22,7 @@ aside {
    box-shadow: 0 0px 7px 0 rgba(0,0,0.3);
  }
  
- input[type=text],input[type=password],input[type=email] {
+ input[type=text],input[type=password],input[type=email],input[type=number]  {
    border: 0px solid #aaa;
    border-radius: 4px;
    outline: none;
@@ -48,6 +48,22 @@ aside button {
 aside button:hover{
    background: rgba(76, 0, 255, 0.18);
 }
+/*----------------------*/
+.expired-p {
+  background-color: rgb(173, 255, 173);
+  color: rgb(0, 78, 0);
+  border: 0.5px solid rgb(0, 147, 0);
+  margin-bottom: 0px;
+  width: 280px;
+}
+.expired-not {
+  background-color: rgb(255, 184, 184);
+  color: rgb(150, 0, 0);
+  border: 0.5px solid rgb(182, 0, 0);
+  margin-bottom: 0px;
+  width: 280px;
+}
+/*----------------------*/
 
 /*--------------------------Table------------*/
 #tbl {

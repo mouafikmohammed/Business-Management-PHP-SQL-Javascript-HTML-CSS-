@@ -107,3 +107,18 @@ form .btn{
    padding: 5px;
    font-size: small;
 }
+
+/*if connected or not*/
+.ale {
+   background-color: rgb(173, 255, 173);
+   color: rgb(0, 78, 0);
+   border: 0.5px solid rgb(0, 147, 0);
+   margin-bottom: 0px;
+}
+.ale-not {
+   background-color: rgb(255, 184, 184);
+   color: rgb(150, 0, 0);
+   border: 0.5px solid rgb(182, 0, 0);
+   margin-bottom: 0px;
+}
+/*-------------------*/
