@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 28, 2022 at 11:07 AM
+-- Generation Time: Nov 15, 2022 at 12:02 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -43,6 +43,39 @@ INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `date`) VALUES
 (5, 'bcbcb', 'bcbcb@bcbbc.ncn', '0634826684', '2022-09-26 08:04:58'),
 (6, 'Adan Jacksen', 'adan@con.uk', '+1768983462', '2022-09-27 12:50:46'),
 (8, 'Something', 'h@gmail.co', '+55555555', '2022-09-27 14:46:49');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `expired`
+--
+
+CREATE TABLE `expired` (
+  `id` int(11) NOT NULL,
+  `expired` int(10) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `expired`
+--
+
+INSERT INTO `expired` (`id`, `expired`, `date`) VALUES
+(10, 5, '2022-11-15 08:57:55');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `gmail`
+--
+
+CREATE TABLE `gmail` (
+  `id` int(11) NOT NULL,
+  `name` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `password` varchar(50) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -87,9 +120,9 @@ CREATE TABLE `purchase` (
 --
 
 INSERT INTO `purchase` (`id`, `reference`, `name`, `quantity`, `price`, `companyname`, `email`, `date`) VALUES
-(13, 'EAR45', 'test', 24, 737, 'kkj', 'kkj@email.com', '2022-09-25 21:25:30'),
-(14, 'QS23', 'test1', 6, 89, 'EDXS', 'mouafikmohammed03@gmail.com', '2022-09-25 21:48:34'),
-(20, 'BVBV6', 'Something', 2, 90, 'Apple', 'mouafikmohammed03@gmail.com', '2022-09-27 14:48:43');
+(12, 'KSH-77', 'IPHONE 11', 6, 400, 'Apple', 'apple@gmail.com', '2022-11-09 13:01:21'),
+(13, '8LM01', 'HP Elitebook', 4, 200, 'HP', 'hp@contact.com', '2022-11-14 14:25:35'),
+(14, 'Z-et6', 'Redmi Phone', 23, 230, 'Redmi', 'redmi@rr.co', '2022-11-14 14:53:28');
 
 -- --------------------------------------------------------
 
@@ -113,7 +146,8 @@ CREATE TABLE `sells` (
 --
 
 INSERT INTO `sells` (`id`, `reference`, `name`, `quantity`, `price`, `companyname`, `email`, `date`) VALUES
-(4, 'BVBV6', 'mlmm', 5, 200, 'something', 'apple@icloud.co', '2022-09-27 14:49:52');
+(5, 'ABC', 'ABC phone', 5, 450, 'Abc', 'abc@mail.com', '2022-11-14 15:16:17'),
+(6, 'EE90K', 'LG TV', 4, 600, 'LG', 'lg@contact.com', '2022-11-14 15:17:17');
 
 -- --------------------------------------------------------
 
@@ -134,8 +168,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`) VALUES
-(4, 7459, 'test', 'test', '2022-09-25 16:09:15'),
-(7, 11858, 'Mohammed', 'PassMohammed', '2022-09-27 14:50:42');
+(4, 7459, 'test', 'qq', '2022-11-15 11:02:02');
 
 --
 -- Indexes for dumped tables
@@ -150,6 +183,18 @@ ALTER TABLE `contacts`
   ADD KEY `email` (`email`),
   ADD KEY `name` (`name`),
   ADD KEY `phone` (`phone`);
+
+--
+-- Indexes for table `expired`
+--
+ALTER TABLE `expired`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `gmail`
+--
+ALTER TABLE `gmail`
+  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `notes`
@@ -202,6 +247,18 @@ ALTER TABLE `contacts`
   MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
+-- AUTO_INCREMENT for table `expired`
+--
+ALTER TABLE `expired`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+
+--
+-- AUTO_INCREMENT for table `gmail`
+--
+ALTER TABLE `gmail`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+
+--
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
@@ -211,13 +268,13 @@ ALTER TABLE `notes`
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `sells`
 --
 ALTER TABLE `sells`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `users`
