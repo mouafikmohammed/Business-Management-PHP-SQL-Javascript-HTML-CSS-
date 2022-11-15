@@ -28,15 +28,14 @@ session_start();
             <li><a  href="index.php"><img class="fas"src="icons/back.svg">Go Back</a></li>
             <li class="active"><a  href="pdfpage.php"><b>></b> Purchase PDF</a></li>
             <li><a href="pdfpagesell.php"><b>></b> Sells PDF</a></li>
-            <li><a  href="#"><b>></b> Create PDF</a></li>
-            <li><a  href="#"><b>></b> Contract PDF</a></li>
+            <li><a  href="pdfpagecreate.php"><b>></b> Create PDF</a></li>
          </ul> 
       </div>
       <div class="main_content">
          <div class="header"> PDF printer </div>
          <!------------------------------->
          <br>
-         <form method='post' action="purchase_pdf.php">
+         <form class="form-pdfpage" method='post' action="purchase_pdf.php">
             <label class="label-table">Choose : </label>
             <select name="id">
                <?php

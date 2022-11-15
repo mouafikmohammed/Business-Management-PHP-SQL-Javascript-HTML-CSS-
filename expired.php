@@ -8,7 +8,9 @@ session_start();
 	$user_data = check_login($con);
 
    # ------------- code for Table -------------------- 
-   $exp_date= date("Y-m-d",strtotime('-7 day'));
+   $expcon = mysqli_query($con,"select * from expired");
+   $rowexp = mysqli_fetch_array($expcon);
+   $exp_date= date("Y-m-d",strtotime('-'.$rowexp['expired'].' day'));
    
    $res= mysqli_query($con,"select * from purchase where date between '2000-07-02' and '$exp_date' ");
 ?>

@@ -9,7 +9,10 @@ session_start();
    #---------------------------------------
    $res= mysqli_query($con,"select * from gmail");
    $row = mysqli_fetch_array($res);
-
+   $rowcounter = mysqli_num_rows($res);
+   $success =    '<div class="ale"> Status : Connected with your Gmail</div>';
+   $notcuccess = '<div class="ale-not"> Status : Not connecte, Go to <b><a href="settings.php">Setting</a></b></div>';
+  
 
 if(isset($_POST['send'])){
    require_once 'mail.php';
@@ -45,6 +48,11 @@ if(isset($_POST['send'])){
          <div class="contact">
             <h2> Send Email </h2>
             <form method='post' class="row g-3">
+               <?php
+                  if($rowcounter > 0){
+                     echo $success;
+                  }else { echo $notcuccess; }
+               ?>
                <div class="col-md-8">
                   <label for="email" class="form-label">E-mail</label>
                   <input type="email" class="form-control" id="email" name="email" required>

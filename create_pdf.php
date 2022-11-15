@@ -10,21 +10,19 @@ $options = new Options;
 $options->setChroot(__DIR__);
 $options->setIsRemoteEnabled(true);
 
-include("pdf_set.php");
-
 $html ='
-   <h1 style="text-align: center;">---- Invoice Purchase ----</h1>
+   <h1 style="text-align: center;">---- '.$_POST['0'].' ----</h1>
    <div class="header" dir="ltr">
       <p>
-         <b>Purchase ID :</b> '.$rowb['id'].'<br>
-         <b>Date :</b> '.date('d-m-Y', strtotime($rowb['date'])).'<br>
-         <b>Full name :</b>'.$rowg['name'].'
+         <b>'.$_POST['1'].'</b><br>
+         <b>'.$_POST['2'].'</b><br>
+         <b>'.$_POST['3'].'</b>
       </p>
 
       <p style="float:right; margin-right: 50px;">
-         <b>Informations :</b><br>
-         <b>Email :</b> '.$rowb['email'].'<br>
-         <b>Company name :</b> '.$rowb['companyname'].'
+         <b>'.$_POST['4'].'</b><br>
+         <b>'.$_POST['5'].'</b><br>
+         <b>'.$_POST['6'].'</b>
       </p>
    </div>';
 $date = date('d-m-Y');
@@ -39,16 +37,16 @@ $html .= '
             <th style="border: 1px solid black;">Price $</th>
          </tr>
          <tr>
-            <td style="height:70px; vertical-align: text-top; padding-left: 5px;">'.$rowb['reference'].'</td>
-            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$rowb['name'].'</td>
-            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$rowb['quantity'].'</td>
-            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$rowb['price'].'</td>
+            <td style="height:70px; vertical-align: text-top; padding-left: 5px;">'.$_POST['7'].'</td>
+            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$_POST['8'].'</td>
+            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$_POST['9'].'</td>
+            <td style="height:70px; vertical-align: text-top; text-align: center;">'.$_POST['10'].' $</td>
          </tr>
          <tr>
                <td></td>
                <td></td>
                <td style="border: 1px solid black; text-align: right;">Total: </td>
-               <td style="border: 1px solid black; text-align: center;">'.$rowb['quantity']*$rowb['price'].'</td>
+               <td style="border: 1px solid black; text-align: center;">'.$_POST['9']*$_POST['10'].' $</td>
          </tr>
       </table>
    </div> <br><br>
@@ -66,7 +64,6 @@ $dompdf->loadHtml($html);
 $dompdf->render();
 
 $dompdf->addInfo("Title","PDF Buy/Purchase");
-$a = $rowb['id'];
-$b = $rowb['name'];
+$a = $_POST['8'];
 
-$dompdf->stream("$a-purchase-$b.pdf",["Attachment" => 0]); // ,["Attachment" => 0]
+$dompdf->stream("$a.pdf"); // ,["Attachment" => 0]

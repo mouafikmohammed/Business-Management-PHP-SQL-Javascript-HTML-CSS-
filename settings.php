@@ -57,9 +57,8 @@ session_start();
          <!-- <a href="#"><img class="logo" src="img/logo.png"></a> -->
          <ul>
             <li><a  href="index.php"><img class="fas"src="icons/back.svg">Go Back</a></li>
-            <li class="active"><a  href="#"><b>></b> Connect Gmail</a></li>
-            <li><a href="#"><b>></b> test</a></li>
-            <li><a  href="#"><b>></b> test</a></li>
+            <li class="active"><a  href="settings.php"><b>></b> Connect Gmail</a></li>
+            <li><a href="other_settings.php"><b>></b> Others</a></li>
          </ul> 
       </div>
       <div class="main_content">

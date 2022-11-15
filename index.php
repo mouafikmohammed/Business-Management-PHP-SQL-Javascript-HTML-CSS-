@@ -144,8 +144,13 @@ session_start();
                      <div>
                         <?php
                            require 'connection.php';
-                           $exp_date= date("Y-m-d",strtotime('-7 day'));
+
+                           $expcon = mysqli_query($con,"select * from expired");
+                           $rowexp = mysqli_fetch_array($expcon);
+
+                           $exp_date= date("Y-m-d",strtotime('-'.$rowexp['expired'].' day'));
                            $query = "SELECT * FROM purchase WHERE DATE BETWEEN '2000-07-02' and '$exp_date'";
+
 
                            $query_run = mysqli_query($con, $query);
                            $rowe = mysqli_num_rows($query_run);

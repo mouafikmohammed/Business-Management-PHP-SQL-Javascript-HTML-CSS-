@@ -101,7 +101,7 @@ session_start();
                   <label>Reference</label> <br>
                   <input type="text" name="reference" id="reference" placeholder="reference" required> <br>
                   <label>Product Name</label> <br>
-                  <input type="text" name="name" id="name" placeholder="product name"> <br>
+                  <input type="text" name="name" id="name" placeholder="product name"><br>
                   <label>Company Name</label><br>
                   <input type="text" name="companyname" id="price" placeholder="company name"><br>
                   <label>Email</label><br>
