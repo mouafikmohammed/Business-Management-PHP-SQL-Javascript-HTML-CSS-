@@ -11,7 +11,6 @@ $options->setChroot(__DIR__);
 $options->setIsRemoteEnabled(true);
 
 include("pdf_set.php");
-
 $html ='
    <h1 style="text-align: center;">---- Invoice Purchase ----</h1>
    <div class="header" dir="ltr">
@@ -69,4 +68,4 @@ $dompdf->addInfo("Title","PDF Buy/Purchase");
 $a = $rowb['id'];
 $b = $rowb['name'];
 
-$dompdf->stream("$a-purchase-$b.pdf",["Attachment" => 0]); // ,["Attachment" => 0]
+$dompdf->stream("$b-purchase-$a.pdf",["Attachment" => 0]); // ,["Attachment" => 0]

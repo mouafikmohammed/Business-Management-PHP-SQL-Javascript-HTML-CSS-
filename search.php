@@ -46,7 +46,7 @@ session_start();
       <div class="main_content">
          <div class="header">Search</div>
          <!-- Search ----------------->
-         <div class="search"> Search Place, write code here for searching
+         <div class="search"> working in it :)
             <br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>
          </div>
       </div>
