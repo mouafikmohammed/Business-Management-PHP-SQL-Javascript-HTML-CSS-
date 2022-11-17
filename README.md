@@ -15,7 +15,7 @@
   <tr>
     <td align="center">
       <a href="https://github.com/mouafikmohammed">
-        <img src="img/mouafik.jpg" width="160px;" alt="mouafik's picture"/><br>
+        <img src="img/med.jpg" width="160px;" alt="mouafik's picture"/><br>
         <sub>
           <b>Mohammed Mouafik</b>
         </sub>
