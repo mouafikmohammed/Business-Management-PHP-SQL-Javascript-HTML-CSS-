@@ -1,9 +1,8 @@
 # Web App
-## Mohammed Mouafik version
-devloping by @mouafikmohammed
+`Mohammed Mouafik version`
 
-Libs
-```
+## Librarys
+```json
 {
     "require": {
         "phpmailer/phpmailer": "^6.6",
@@ -11,3 +10,16 @@ Libs
     }
 }
 ```
+## Devloper
+<table>
+  <tr>
+    <td align="center">
+      <a href="https://github.com/mouafikmohammed">
+        <img src="img/mouafik.jpg" width="160px;" alt="mouafik's picture"/><br>
+        <sub>
+          <b>Mohammed Mouafik</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
