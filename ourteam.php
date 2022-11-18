@@ -65,7 +65,7 @@ session_start();
             <div class="card">
                <div class="content">
                   <div class="imgBx">
-                     <img src="img/mouafik.jpg" alt="Mohammed Mouafk">
+                     <img src="img/med.jpg" alt="Mohammed Mouafk">
                   </div>
                   <div class="contentBx">
                      <h4>Mohammed Mouafik</h4>

@@ -9,7 +9,6 @@
    # ------------- code for Table --------------------
 
    $res= mysqli_query($con,"select * from purchase");
-
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +19,9 @@
 	<link rel="stylesheet" href="css/stock.css">
    <link rel="stylesheet" href="css/style.css">
    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+   <!-- <link> -->
+   <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -76,7 +78,34 @@
                ?>
             </table>
          </form>
+         <div class="test">
+            <table id="table_id" class="table">
+               <thead>
+                  <tr>
+                        <th>name</th>
+                        <th>age</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  <tr>
+                        <td>medd</td>
+                        <td>22</td>
+                  </tr>
+                  <tr>
+                        <td>yasser</td>
+                        <td>14</td>
+                  </tr>
+               </tbody>
+            </table>
+         </div>
       </div>  
-   </div>  
+   </div>
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+   <script>
+      $(document).ready( function () {
+         $('.table').DataTable();
+      } );
+   </script>
+   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 </body>
 </html>
