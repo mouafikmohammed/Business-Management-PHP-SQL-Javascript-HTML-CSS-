@@ -52,54 +52,39 @@
       <div class="main_content">
          <div class="header">Stock</div>
          <br>
-         <form method='post'>
-            <table>
-               <tr> 
-                  <th>Reference</th>
-                  <th>Name</th>
-                  <th>Company Name</th>
-                  <th>Email</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                  <th>total Price</th>
-               </tr>
-               <?php
-                  while ($row = mysqli_fetch_array($res)){
-                     echo "<tr>";
-                     echo "<td>".$row['reference']."</td>";
-                     echo "<td>".$row['name']."</td>";
-                     echo "<td>".$row['companyname']."</td>";
-                     echo "<td>".$row['email']."</td>";
-                     echo "<td>".$row['quantity']."</td>";
-                     echo "<td>".$row['price']."</td>";
-                     echo "<td>".$row['price']*$row['quantity']."</td>";
-                     echo "</tr>";
-                     }
-               ?>
-            </table>
-         </form>
-         <div class="test">
-            <table id="table_id" class="table">
+         <form method='post' class="cont">
+            <table class="table">
                <thead>
-                  <tr>
-                        <th>name</th>
-                        <th>age</th>
+                  <tr> 
+                     <th>Reference</th>
+                     <th>Name</th>
+                     <th>Company Name</th>
+                     <th>Email</th>
+                     <th>Quantity</th>
+                     <th>Price</th>
+                     <th>total Price</th>
                   </tr>
                </thead>
                <tbody>
-                  <tr>
-                        <td>medd</td>
-                        <td>22</td>
-                  </tr>
-                  <tr>
-                        <td>yasser</td>
-                        <td>14</td>
-                  </tr>
+                  <?php
+                     while ($row = mysqli_fetch_array($res)){
+                        echo "<tr>";
+                        echo "<td>".$row['reference']."</td>";
+                        echo "<td>".$row['name']."</td>";
+                        echo "<td>".$row['companyname']."</td>";
+                        echo "<td>".$row['email']."</td>";
+                        echo "<td>".$row['quantity']."</td>";
+                        echo "<td>".$row['price']."</td>";
+                        echo "<td>".$row['price']*$row['quantity']."</td>";
+                        echo "</tr>";
+                        }
+                  ?>
                </tbody>
             </table>
-         </div>
+         </form>
       </div>  
    </div>
+   <!-- ----------------------links and JQuery -->
    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
    <script>
       $(document).ready( function () {
