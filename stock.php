@@ -7,8 +7,14 @@
 	$user_data = check_login($con);
 
    # ------------- code for Table --------------------
-
    $res= mysqli_query($con,"select * from purchase");
+   #-------- delete db from purchase---------------
+   if(isset($_GET['id'])){
+      $id = $_GET['id'];
+      $sqls= "DELETE from purchase where id='$id'";
+      mysqli_query($con,$sqls);
+      header("location: stock.php");
+   }
 ?>
 
 <!DOCTYPE html>
@@ -64,6 +70,7 @@
                         <th>Quantity</th>
                         <th>Price</th>
                         <th>total Price</th>
+                        <th> </th>
                      </tr>
                   </thead>
                   <tbody>
@@ -77,6 +84,7 @@
                            echo "<td>".$row['quantity']."</td>";
                            echo "<td>".$row['price']."</td>";
                            echo "<td>".$row['price']*$row['quantity']."</td>";
+                           echo "<td><a id='btn' href='stock.php?id=".$row['id']."'>Del</a></td>";
                            echo "</tr>";
                            }
                      ?>
