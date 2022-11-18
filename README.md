@@ -1,7 +1,7 @@
 # Web App
 `Mohammed Mouafik version`
 
-## Librarys
+## Libs
 ```json
 {
     "require": {
