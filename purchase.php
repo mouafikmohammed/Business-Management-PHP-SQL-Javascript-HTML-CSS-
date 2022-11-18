@@ -45,9 +45,10 @@ session_start();
       header("location: purchase.php");
    }
 
-   #--------delete db from purchase---------------
-   if(isset($_POST['del'])){
-      $sqls= "DELETE from purchase where reference='$reference'";
+   #-------- delete db from purchase---------------
+   if(isset($_GET['id'])){
+      $id = $_GET['id'];
+      $sqls= "DELETE from purchase where id='$id'";
       mysqli_query($con,$sqls);
       header("location: purchase.php");
    }
@@ -137,6 +138,7 @@ session_start();
                         echo "<td>".$row['quantity']."</td>";
                         echo "<td>".$row['price']."</td>";
                         echo "<td>".$row['price']*$row['quantity']."</td>";
+                        echo "<td><a href='purchase.php?id=".$row['id']."'>Deletee</a></td>";
                         echo "</tr>";
                      }
                   ?>
