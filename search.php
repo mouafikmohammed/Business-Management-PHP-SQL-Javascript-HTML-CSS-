@@ -82,6 +82,11 @@ session_start();
                                                       {
                                                          ?>
                                                          <tr>
+                                                            <th>name</th>
+                                                            <th>phone</th>
+                                                            <th>email</th>
+                                                         </tr>
+                                                         <tr>
                                                             <td><?= $items['name']; ?></td>
                                                             <td><?= $items['phone']; ?></td>
                                                             <td><?= $items['email']; ?></td>                                                   
@@ -111,7 +116,10 @@ session_start();
                                                         foreach($query_run as $items)
                                                         {
                                                             ?>
-                                                            
+                                                            <tr>
+                                                               <th>Subject</th>
+                                                               <th>Note</th>
+                                                            </tr>
                                                             <tr>
                                                                <td><?= $items['subject']; ?></td>
                                                                <td><?= $items['note']; ?></td>                                                  
@@ -142,14 +150,18 @@ session_start();
                                                         { 
                                                             ?>
                                                             <tr>
-                                                            <td><?= $items['reference']; ?></td>
-                                                                <td><?= $items['name']; ?></td>
-                                                                <td><?= $items['quantity']; ?></td>
-                                                                <td><?= $items['price']; ?></td>
-                                                                <td><?= $items['companyname']; ?></td>
-                                                                <td><?= $items['date']; ?></td>
-                                                        
-                                                                                                                    
+                                                               <th>reference</th>
+                                                               <th>name</th>
+                                                               <th>Qty</th>
+                                                               <th>price</th>
+                                                               <th>Company-name</th>
+                                                            </tr>
+                                                            <tr>
+                                                               <td><?= $items['reference']; ?></td>
+                                                               <td><?= $items['name']; ?></td>
+                                                               <td><?= $items['quantity']; ?></td>
+                                                               <td><?= $items['price']; ?></td>
+                                                               <td><?= $items['companyname']; ?></td>                                                 
                                                             </tr>
                                                             <?php
                                                         }
@@ -177,14 +189,18 @@ session_start();
                                                         { 
                                                             ?>
                                                             <tr>
-                                                            <td><?= $items['reference']; ?></td>
-                                                                <td><?= $items['name']; ?></td>
-                                                                <td><?= $items['quantity']; ?></td>
-                                                                <td><?= $items['price']; ?></td>
-                                                                <td><?= $items['companyname']; ?></td>
-                                                                <td><?= $items['date']; ?></td>
-                                                        
-                                                                                                                    
+                                                               <th>reference</th>
+                                                               <th>name</th>
+                                                               <th>Qty</th>
+                                                               <th>price</th>
+                                                               <th>comany-name</th>
+                                                            </tr>
+                                                            <tr>
+                                                               <td><?= $items['reference']; ?></td>
+                                                               <td><?= $items['name']; ?></td>
+                                                               <td><?= $items['quantity']; ?></td>
+                                                               <td><?= $items['price']; ?></td>
+                                                               <td><?= $items['companyname']; ?></td>                                                   
                                                             </tr>
                                                             <?php
                                                         }
