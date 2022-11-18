@@ -138,7 +138,7 @@ session_start();
                         echo "<td>".$row['quantity']."</td>";
                         echo "<td>".$row['price']."</td>";
                         echo "<td>".$row['price']*$row['quantity']."</td>";
-                        echo "<td><a href='purchase.php?id=".$row['id']."'>Deletee</a></td>";
+                        echo "<td><a id='btn' href='purchase.php?id=".$row['id']."'>Del</a></td>";
                         echo "</tr>";
                      }
                   ?>

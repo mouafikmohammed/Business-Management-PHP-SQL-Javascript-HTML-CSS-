@@ -34,7 +34,7 @@ input:focus{
   box-shadow: 0 0 8px 0 dodgerblue;
 }
 
-aside button {
+aside button{
   width: 48%;
   background: rgba(255, 0, 0, 0.18);
   border: none;
@@ -43,11 +43,23 @@ aside button {
   font-size: 17px;
   font-size: sans-serif;
 }
+#btn {
+  color: black;
+  background-color: rgba(255, 228, 196, 0.372);
+  border: 1px solid black;
+  padding: 5px;
+  justify-content: center;
+
+}
+#btn:hover{
+  background-color: rgba(127, 255, 212, 0.484);
+}
 /*--------------------------Table------------*/
 #tbl {
   width: 800px;
   font-size: 20px;
   margin-top: 0px;
+  margin-bottom: 20px;
   border-collapse: collapse;
 }
 #tbl th {
@@ -66,11 +78,13 @@ aside button {
   padding-left: 10px;
   background-color: #fafafa95;
   backdrop-filter: blur(40px);
+  padding: 10px;
 
 }
 
 #tbl th, #tbl td {
   border: 1px solid rgba(255, 0, 0, 0.26);
   backdrop-filter: blur(40px);
+  text-align: center;
 }
 /* end Purchase*/
