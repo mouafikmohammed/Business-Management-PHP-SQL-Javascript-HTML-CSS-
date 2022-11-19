@@ -77,15 +77,17 @@ session_start();
                                                     $query_run = mysqli_query($con, $query);
 
                                                     if(mysqli_num_rows($query_run) > 0)
-                                                    {
-                                                      foreach($query_run as $items)
-                                                      {
-                                                         ?>
+                                                    {?>
                                                          <tr>
                                                             <th>name</th>
                                                             <th>phone</th>
                                                             <th>email</th>
                                                          </tr>
+                                                    <?php
+                                                      foreach($query_run as $items)
+                                                      {
+                                                         ?>
+
                                                          <tr>
                                                             <td><?= $items['name']; ?></td>
                                                             <td><?= $items['phone']; ?></td>
@@ -94,10 +96,9 @@ session_start();
                                                          <?php
                                                       }
                                                     }
-                                                    else
-                                                    {
+                                                    else{
                                                         ?>
-                                                        
+                                                        <p>There is no (<?=$_GET['search'];?>) in <b>Contact</b></p>
                                                         <?php
                                                     }
                                                 }
@@ -112,14 +113,15 @@ session_start();
                                                     $query_run = mysqli_query($con, $query);
 
                                                     if(mysqli_num_rows($query_run) > 0)
-                                                    {
-                                                        foreach($query_run as $items)
-                                                        {
-                                                            ?>
+                                                    {?>
                                                             <tr>
                                                                <th>Subject</th>
                                                                <th>Note</th>
                                                             </tr>
+                                                    <?php
+                                                        foreach($query_run as $items)
+                                                        {
+                                                            ?>
                                                             <tr>
                                                                <td><?= $items['subject']; ?></td>
                                                                <td><?= $items['note']; ?></td>                                                  
@@ -130,7 +132,7 @@ session_start();
                                                     else
                                                     {
                                                         ?>
-                                                        
+                                                            <p>There is no (<?=$_GET['search'];?>) in <b>Note</b></p>
                                                         <?php
                                                     }
                                                 }
@@ -145,10 +147,7 @@ session_start();
                                                     $query_run = mysqli_query($con, $query);
 
                                                     if(mysqli_num_rows($query_run) > 0)
-                                                    {
-                                                        foreach($query_run as $items)
-                                                        { 
-                                                            ?>
+                                                    { ?>
                                                             <tr>
                                                                <th>reference</th>
                                                                <th>name</th>
@@ -156,6 +155,11 @@ session_start();
                                                                <th>price</th>
                                                                <th>Company-name</th>
                                                             </tr>
+                                                    <?php  
+
+                                                        foreach($query_run as $items)
+                                                        { 
+                                                            ?>
                                                             <tr>
                                                                <td><?= $items['reference']; ?></td>
                                                                <td><?= $items['name']; ?></td>
@@ -169,7 +173,7 @@ session_start();
                                                     else
                                                     {
                                                         ?>
-                                                        
+                                                            <p>There is no (<?=$_GET['search'];?>) in <b>Purchase</b></p>
                                                         <?php
                                                     }
                                                 }
@@ -184,10 +188,7 @@ session_start();
                                                     $query_run = mysqli_query($con, $query);
 
                                                     if(mysqli_num_rows($query_run) > 0)
-                                                    {
-                                                        foreach($query_run as $items)
-                                                        { 
-                                                            ?>
+                                                    {?>
                                                             <tr>
                                                                <th>reference</th>
                                                                <th>name</th>
@@ -195,6 +196,10 @@ session_start();
                                                                <th>price</th>
                                                                <th>comany-name</th>
                                                             </tr>
+                                                    <?php
+                                                        foreach($query_run as $items)
+                                                        { 
+                                                            ?>
                                                             <tr>
                                                                <td><?= $items['reference']; ?></td>
                                                                <td><?= $items['name']; ?></td>
@@ -208,7 +213,7 @@ session_start();
                                                     else
                                                     {
                                                         ?>
-                                                        
+                                                            <p>There is no (<?=$_GET['search'];?>) in <b>Sell</b></p>
                                                         <?php
                                                     }
                                                 }
