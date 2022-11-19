@@ -1,8 +1,10 @@
 /* stock */
 .container{
-	color: white;
 	width: 90%;
 	margin: auto;
+	border: 1px solid rgb(0, 0, 0);
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.413);
 }
 table {
   	margin-left: 25px;
@@ -23,7 +25,7 @@ th {
 }
 
 th {
-	background: rgba(255, 42, 42, 0.299);
+	background: rgb(144, 12, 12);
 	color: white;
 }
 
