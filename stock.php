@@ -7,9 +7,14 @@
 	$user_data = check_login($con);
 
    # ------------- code for Table --------------------
-
    $res= mysqli_query($con,"select * from purchase");
-
+   #-------- delete db from purchase---------------
+   if(isset($_GET['id'])){
+      $id = $_GET['id'];
+      $sqls= "DELETE from purchase where id='$id'";
+      mysqli_query($con,$sqls);
+      header("location: stock.php");
+   }
 ?>
 
 <!DOCTYPE html>
@@ -20,6 +25,9 @@
 	<link rel="stylesheet" href="css/stock.css">
    <link rel="stylesheet" href="css/style.css">
    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+   <!-- <link> -->
+   <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -50,33 +58,49 @@
       <div class="main_content">
          <div class="header">Stock</div>
          <br>
-         <form method='post'>
-            <table>
-               <tr> 
-                  <th>Reference</th>
-                  <th>Name</th>
-                  <th>Company Name</th>
-                  <th>Email</th>
-                  <th>Quantity</th>
-                  <th>Price</th>
-                  <th>total Price</th>
-               </tr>
-               <?php
-                  while ($row = mysqli_fetch_array($res)){
-                     echo "<tr>";
-                     echo "<td>".$row['reference']."</td>";
-                     echo "<td>".$row['name']."</td>";
-                     echo "<td>".$row['companyname']."</td>";
-                     echo "<td>".$row['email']."</td>";
-                     echo "<td>".$row['quantity']."</td>";
-                     echo "<td>".$row['price']."</td>";
-                     echo "<td>".$row['price']*$row['quantity']."</td>";
-                     echo "</tr>";
-                     }
-               ?>
-            </table>
-         </form>
+         <div class="container">
+            <form method='post'>
+               <table class="table">
+                  <thead>
+                     <tr> 
+                        <th>Reference</th>
+                        <th>Name</th>
+                        <th>Company Name</th>
+                        <th>Email</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>total Price</th>
+                        <th> </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <?php
+                        while ($row = mysqli_fetch_array($res)){
+                           echo "<tr>";
+                           echo "<td>".$row['reference']."</td>";
+                           echo "<td>".$row['name']."</td>";
+                           echo "<td>".$row['companyname']."</td>";
+                           echo "<td>".$row['email']."</td>";
+                           echo "<td>".$row['quantity']."</td>";
+                           echo "<td>".$row['price']."</td>";
+                           echo "<td>".$row['price']*$row['quantity']."</td>";
+                           echo "<td><a id='btn' href='stock.php?id=".$row['id']."'>Del</a></td>";
+                           echo "</tr>";
+                           }
+                     ?>
+                  </tbody>
+               </table>
+            </form>
+         </div>
       </div>  
-   </div>  
+   </div>
+   <!-- ----------------------links and JQuery -->
+   <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+   <script>
+      $(document).ready( function () {
+         $('.table').DataTable();
+      } );
+   </script>
+   <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 </body>
 </html>
