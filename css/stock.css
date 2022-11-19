@@ -1,7 +1,13 @@
 /* stock */
-
+.container{
+	width: 90%;
+	margin: auto;
+	border: 1px solid rgb(0, 0, 0);
+	padding: 10px;
+	background-color: rgba(255, 255, 255, 0.413);
+}
 table {
-  margin-left: 25px;
+  	margin-left: 25px;
 	width: 95%;
 	border-collapse: collapse;
 }
@@ -19,7 +25,7 @@ th {
 }
 
 th {
-	background: rgba(255, 42, 42, 0.299);
+	background: rgb(144, 12, 12);
 	color: white;
 }
 
@@ -27,6 +33,7 @@ td {
   background-color: #fafafa8f;
   backdrop-filter: blur(20px);
 }
+
 		
 /*this for pdfpage.php*/
 .label-table {
