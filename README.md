@@ -1,7 +1,11 @@
 # Web App
 `Devloping by Mohammed Mouafik [Med-Mouafik version]`
 
-## Install
+![GitHub repo size](https://img.shields.io/github/repo-size/iuricode/README-template?style=for-the-badge)
+![GitHub language count](https://img.shields.io/github/languages/count/iuricode/README-template?style=for-the-badge)
+![GitHub forks](https://img.shields.io/github/forks/iuricode/README-template?style=for-the-badge)
+
+## Install:
 1. **Download the code**
   ```
   git clone -b gh-pages https://github.com/mouafikmohammed/Business-Management-PHP-SQL-Javascript-HTML-CSS-.git
@@ -20,20 +24,29 @@
       die("failed to connect!");
     }
    ```
-4. Good luck<br>
+4. **Good luck**<br>
    ```php
     echo 'Good luck';
    ```
 <br>
 
-## Web APP Languages `other Lan will be soon`
+## Web APP Languages `other Lan will be soon`:
 - [x] English
 - [ ] Spanish
 - [ ] French
 - [ ] Chinese
 <br>
 
-## Librarys/Framworks I used in this Project
+### Built With:
+![Languages and Tools](https://skillicons.dev/icons?i=php,html,css,js,git,jquery,bootstrap,)
+* [php](https://www.php.net/)
+* [html](https://www.w3schools.com/html/)
+* [css](https://www.w3schools.com/css/)
+* [JavaScript](https://www.javascript.com)
+* [JQuery](https://jquery.com)
+* [Bootstrap](https://getbootstrap.com)
+
+## Librarys/Framworks I used in this Project:
 ### PHP
 ```json
     {
@@ -43,8 +56,6 @@
         }
     }
 ```
-<br>
-
 ### JavaScript
 ```json
     {
@@ -53,7 +64,7 @@
 ```
 <br>
 
-## Devloper
+## Devloper:
 <table>
   <tr>
     <td align="center">
