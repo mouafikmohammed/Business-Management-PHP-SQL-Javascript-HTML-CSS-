@@ -46,10 +46,16 @@ session_start();
       header("location: sells.php");
    }
 
-   #--------delete db from purchase---------------
-   if(isset($_POST['del'])){
-      $sqls= "delete from sells where reference='$reference'";
-      mysqli_query($con,$sqls);
+
+   #-------- delete db from sells and put it in trash table---------------
+   if(isset($_GET['id'])){
+      $id = $_GET['id'];
+      $sql1 = "INSERT INTO strash SELECT * FROM sells WHERE id='$id'";
+      mysqli_query($con,$sql1);
+      if(true){
+         $sqls= "DELETE from sells where id='$id'";
+         mysqli_query($con,$sqls);
+      }
       header("location: sells.php");
    }
 
@@ -130,6 +136,7 @@ session_start();
                         echo "<td>".$row['quantity']."</td>";
                         echo "<td>".$row['price']."</td>";
                         echo "<td>".$row['price']*$row['quantity']."</td>";
+                        echo "<td><a id='btn' href='sells.php?id=".$row['id']."'>Del</a></td>";
                         echo "</tr>";
                      }
                   ?>

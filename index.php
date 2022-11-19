@@ -243,6 +243,18 @@ session_start();
                   </div>
                </a>
 
+               <a href="trash.php">
+                  <div class="card-single">
+                     <img src="icons/delete.svg" width="30" height="30">
+                     <div>
+                        <h4>Trash Data<?php echo $spac;?></h4>
+                        <small>trash</small>
+                     </div>
+                     <div>
+                        <span class="fa fa-shopping-cart"></span>
+                     </div>
+                  </div>
+               </a>
 				</div>
 			</main>
       </div>

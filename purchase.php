@@ -45,11 +45,15 @@ session_start();
       header("location: purchase.php");
    }
 
-   #-------- delete db from purchase---------------
+   #-------- delete db from purchase and put it in trash table---------------
    if(isset($_GET['id'])){
       $id = $_GET['id'];
-      $sqls= "DELETE from purchase where id='$id'";
-      mysqli_query($con,$sqls);
+      $sql1 = "INSERT INTO ptrash SELECT * FROM purchase WHERE id='$id'";
+      mysqli_query($con,$sql1);
+      if(true){
+         $sqls= "DELETE from purchase where id='$id'";
+         mysqli_query($con,$sqls);
+      }
       header("location: purchase.php");
    }
 
@@ -113,7 +117,7 @@ session_start();
                   <input type="number" name="price" id="price" placeholder="price" min="1"><br>
                   
                   <button name="add">ADD</button>
-                  <button name="del">Delete</button>
+                  <!-- <button name="del">Delete</button> -->
                </div>
             </aside>
             <!--table-->
@@ -146,5 +150,6 @@ session_start();
             </main>
          </form>
       </div>
+   </div>
 </body>
 </html>
