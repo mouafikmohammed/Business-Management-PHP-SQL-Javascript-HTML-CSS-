@@ -59,7 +59,24 @@ session_start();
       header("location: sells.php");
    }
 
+   #------------take data from purchase and put it in sells table---------------------
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -69,6 +86,9 @@ session_start();
 	<link rel="stylesheet" href="css/sell.css">
    <link rel="stylesheet" href="css/style.css">
    <link rel="icon" type="image/x-icon" href="img/logo.png" />
+
+   <!-- <link> -->
+   <link href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.css" rel="stylesheet">
 </head>
 
 <body>
@@ -97,53 +117,133 @@ session_start();
       </div>
       <div class="main_content">
          <div class="header">Sells</div>
-         <form method='post' class="form-inline">
-            <div class="infos">
-               <label>Reference:</label>
-               <input type="text" name="reference" placeholder="reference" required>
-               <label>Product Name:</label>
-               <input type="text" name="name" placeholder="product name"> <br><br>
-               <label>Company Name:</label>
-               <input type="text" name="companyname" placeholder="company Name">         
-               <label>Email:</label>
-               <input type="email" name="email" placeholder="enter email..." > <br><br>
-               <label>Quantity:</label>
-               <input type="number" name="quantity" placeholder="quantity..." min="1">
-               <label>Price:</label>
-               <input type="number" name="price" min="1" placeholder="price..." >
-
-               <button name="add">ADD</button>
-               <button name="del">Del</button>
-            </div>
-            <div>
-               <table>
-                  <tr>
+         <form method='post'>
+            <table class="table class" style="color:white;">
+               <thead>
+                  <tr> 
                      <th>Reference</th>
                      <th>Name</th>
-                     <th>Company Name</th>
-                     <th>Email</th>
                      <th>Quantity</th>
                      <th>Price</th>
-                     <th>total Price</th>
+                     <th> </th>
                   </tr>
+               </thead>
+               <tbody>
                   <?php
-                     while ($row = mysqli_fetch_array($res)){
+                     $p_res = mysqli_query($con,"select * from purchase");
+                     while ($p_row = mysqli_fetch_array($p_res)){
                         echo "<tr>";
-                        echo "<td>".$row['reference']."</td>";
-                        echo "<td>".$row['name']."</td>";
-                        echo "<td>".$row['companyname']."</td>";
-                        echo "<td>".$row['email']."</td>";
-                        echo "<td>".$row['quantity']."</td>";
-                        echo "<td>".$row['price']."</td>";
-                        echo "<td>".$row['price']*$row['quantity']."</td>";
-                        echo "<td><a id='btn' href='sells.php?id=".$row['id']."'>Del</a></td>";
+                        echo "<td>".$p_row['reference']."</td>";
+                        echo "<td>".$p_row['name']."</td>";
+                        echo "<td>".$p_row['quantity']."</td>";
+                        echo "<td>".$p_row['price']."</td>";
+                        echo "<td><a href='sells.php?id2=".$p_row['id']."' style='color:blue;'>Select for Sell</a></td>";
                         echo "</tr>";
-                     }
+                        }
                   ?>
+               </tbody>
+            </table>
+            <?php
+               if(isset($_GET['id2'])){
+                  $id2 = $_GET['id2'];
+                  $pres =  mysqli_query($con,"SELECT * FROM purchase WHERE id=$id2");
+                  $prow = mysqli_fetch_array($pres);
+            ?>
+            <div class="infos">
+               <label>Reference:</label>
+               <input type="text" name="reference" value="<?=$prow['reference']?>">
+               <label>Product Name:</label>
+               <input type="text" name="name" value="<?=$prow['name']?>"> <br><br>
+               <label>Company name or name of the buyer:</label>
+               <input type="text" name="companyname" placeholder="company Name">         
+               <label>Email of the buyer:</label>
+               <input type="email" name="email" placeholder="enter email..." > <br><br>
+               <label>Quantity:</label>
+               <input type="number" name="quantity" placeholder="quantity..." min="1" max="<?=$prow['quantity']?>" required>
+               <label>Price:</label>
+               <input type="number" name="price" min="1" placeholder="price..." >
+               <button name="add">ADD</button>
+               <!-- <button name="del">Del</button> -->
+            </div> 
+            <?php }
+
+               if(isset($_POST['add'])){
+                  $p_qty = $prow['quantity'];
+                  $s_qty = $_POST['quantity'];
+                  if($p_qty == $s_qty){
+                     $sqls1= "DELETE FROM purchase where id=$id2 ";
+                     mysqli_query($con,$sqls1);
+                  }else if($p_qty > $s_qty){
+                     $new_qty = $p_qty - $s_qty;
+                     $sqls2= "UPDATE purchase SET quantity=$new_qty where id=$id2 ";
+                     mysqli_query($con,$sqls2);
+                  }
+               }
+            ?>
+            <div class="class">
+               <table>
+                  <thead>
+                     <tr>
+                        <th>Reference</th>
+                        <th>Name</th>
+                        <th>Company Name</th>
+                        <th>Email</th>
+                        <th>Quantity</th>
+                        <th>Price</th>
+                        <th>total Price</th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     <?php
+                        while ($row = mysqli_fetch_array($res)){
+                           echo "<tr>";
+                           echo "<td>".$row['reference']."</td>";
+                           echo "<td>".$row['name']."</td>";
+                           echo "<td>".$row['companyname']."</td>";
+                           echo "<td>".$row['email']."</td>";
+                           echo "<td>".$row['quantity']."</td>";
+                           echo "<td>".$row['price']."</td>";
+                           echo "<td>".$row['price']*$row['quantity']."</td>";
+                           echo "<td><a id='btn' href='sells.php?id=".$row['id']."'>Del</a></td>";
+                           echo "</tr>";
+                        }
+                     ?>
+                  </tbody>
                </table>
             </div>
          </form>
       </div>
    </div>
+<!-- ----------------------links and JQuery -->
+<script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+<script>
+   $(document).ready( function () {
+      $('.table').DataTable();
+   } );
+</script>
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.js"></script>
 </body>
 </html>
+
+
+
+
+<!-- this old input form
+<div class="infos">
+   <label>Reference:</label>
+   <input type="text" name="reference" placeholder="reference" required>
+   <label>Product Name:</label>
+   <input type="text" name="name" placeholder="product name"> <br><br>
+   <label>Company Name:</label>
+   <input type="text" name="companyname" placeholder="company Name">         
+   <label>Email:</label>
+   <input type="email" name="email" placeholder="enter email..." > <br><br>
+   <label>Quantity:</label>
+   <input type="number" name="quantity" placeholder="quantity..." min="1">
+   <label>Price:</label>
+   <input type="number" name="price" min="1" placeholder="price..." >
+
+   <button name="add">ADD</button>
+   <button name="del">Del</button>
+</div> 
+-->

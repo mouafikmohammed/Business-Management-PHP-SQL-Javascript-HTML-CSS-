@@ -40,13 +40,13 @@ input:focus{
 }
 
 
-table 
+.class table 
 {
    width: 90%;
    font-size: 17px;
    margin: 15px auto;
 }
-table, th, td {
+.class table, .class  th, .class  td {
   border-collapse: collapse;
   padding: 8px 9px;
   text-align: left;
@@ -55,15 +55,15 @@ table, th, td {
   padding: 10px;
   padding-left: 10px;
 }
-th {
+.class th {
 	background: rgba(255, 42, 42, 0.432);
   backdrop-filter: blur(20px);
 	color: white;
 }
-th,td {
+.class th,.class td {
   border: solid 1px black;
 }
-td {
+.class td {
   background-color: #fafafa8f;
   backdrop-filter: blur(20px);
 }
