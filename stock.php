@@ -11,8 +11,12 @@
    #-------- delete db from purchase---------------
    if(isset($_GET['id'])){
       $id = $_GET['id'];
-      $sqls= "DELETE from purchase where id='$id'";
-      mysqli_query($con,$sqls);
+      $sql1 = "INSERT INTO ptrash SELECT * FROM purchase WHERE id='$id'";
+      mysqli_query($con,$sql1);
+      if(true){
+         $sqls= "DELETE from purchase where id='$id'";
+         mysqli_query($con,$sqls);
+      }
       header("location: stock.php");
    }
 ?>
@@ -44,6 +48,7 @@
                <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
                <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
                <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
+               <li><a href="sold.php"><img class="fas"src="icons/sells.svg">Sold</a></li>
                <li class="active"><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
                <li><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
                <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>

@@ -39,6 +39,7 @@ session_start();
             <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
             <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
             <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
+            <li><a href="sold.php"><img class="fas"src="icons/sells.svg">Sold</a></li>
             <li><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
             <li class="active"><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
             <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>

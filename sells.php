@@ -7,12 +7,8 @@ session_start();
 	$user_data = check_login($con);
 
 
-# ------------- code for Table --------------------
+# ------------- code add to sell --------------------
 
-   $res= mysqli_query($con,"select * from sells");
-
-
-   #button variable
    $reference='';
    $name='';
    $quantity='';
@@ -38,43 +34,13 @@ session_start();
       $email=$_POST['email'];
    }
 
-   #--------add db purchase---------------
+   #--------add db purchase table ---------------
    $sqls='';
    if(isset($_POST['add'])){
       $sqls = "insert into sells (reference,name,quantity,price,companyname,email) value('$reference','$name','$quantity','$price','$companyname','$email')";
       mysqli_query($con,$sqls);
       header("location: sells.php");
    }
-
-
-   #-------- delete db from sells and put it in trash table---------------
-   if(isset($_GET['id'])){
-      $id = $_GET['id'];
-      $sql1 = "INSERT INTO strash SELECT * FROM sells WHERE id='$id'";
-      mysqli_query($con,$sql1);
-      if(true){
-         $sqls= "DELETE from sells where id='$id'";
-         mysqli_query($con,$sqls);
-      }
-      header("location: sells.php");
-   }
-
-   #------------take data from purchase and put it in sells table---------------------
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
 
 
@@ -104,7 +70,8 @@ session_start();
             <li><a href="contacts.php"><img class="fas"src="icons/contacts.svg">Contacts</a></li>
             <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
             <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
-            <li class="active"><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
+            <li class="active"><a href="sells.php"><img class="fas"src="icons/sells.svg">Sell</a></li>
+            <li><a href="sold.php"><img class="fas"src="icons/sells.svg">Sold</a></li>
             <li><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
             <li><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
             <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>
@@ -166,7 +133,6 @@ session_start();
                <!-- <button name="del">Del</button> -->
             </div> 
             <?php }
-
                if(isset($_POST['add'])){
                   $p_qty = $prow['quantity'];
                   $s_qty = $_POST['quantity'];
@@ -180,37 +146,6 @@ session_start();
                   }
                }
             ?>
-            <div class="class">
-               <table>
-                  <thead>
-                     <tr>
-                        <th>Reference</th>
-                        <th>Name</th>
-                        <th>Company Name</th>
-                        <th>Email</th>
-                        <th>Quantity</th>
-                        <th>Price</th>
-                        <th>total Price</th>
-                     </tr>
-                  </thead>
-                  <tbody>
-                     <?php
-                        while ($row = mysqli_fetch_array($res)){
-                           echo "<tr>";
-                           echo "<td>".$row['reference']."</td>";
-                           echo "<td>".$row['name']."</td>";
-                           echo "<td>".$row['companyname']."</td>";
-                           echo "<td>".$row['email']."</td>";
-                           echo "<td>".$row['quantity']."</td>";
-                           echo "<td>".$row['price']."</td>";
-                           echo "<td>".$row['price']*$row['quantity']."</td>";
-                           echo "<td><a id='btn' href='sells.php?id=".$row['id']."'>Del</a></td>";
-                           echo "</tr>";
-                        }
-                     ?>
-                  </tbody>
-               </table>
-            </div>
          </form>
       </div>
    </div>
