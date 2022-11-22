@@ -37,6 +37,7 @@ session_start();
                <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
                <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
                <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
+               <li><a href="sold.php"><img class="fas"src="icons/sells.svg">Sold</a></li>
                <li><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
                <li><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
                <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>
@@ -146,9 +147,13 @@ session_start();
                            require 'connection.php';
 
                            $expcon = mysqli_query($con,"select * from expired");
-                           $rowexp = mysqli_fetch_array($expcon);
-
-                           $exp_date= date("Y-m-d",strtotime('-'.$rowexp['expired'].' day'));
+                           if(mysqli_num_rows($expcon) > 0){
+                              $rowexp = mysqli_fetch_array($expcon);
+                              $time = $rowexp['expired'];
+                           }else{
+                              $time = 10000;
+                           }
+                           $exp_date= date("Y-m-d",strtotime('-'.$time.' day'));
                            $query = "SELECT * FROM purchase WHERE DATE BETWEEN '2000-07-02' and '$exp_date'";
 
 
@@ -243,6 +248,18 @@ session_start();
                   </div>
                </a>
 
+               <a href="trash.php">
+                  <div class="card-single">
+                     <img src="icons/delete.svg" width="30" height="30">
+                     <div>
+                        <h4>Trash Data<?php echo $spac;?></h4>
+                        <small>trash</small>
+                     </div>
+                     <div>
+                        <span class="fa fa-shopping-cart"></span>
+                     </div>
+                  </div>
+               </a>
 				</div>
 			</main>
       </div>

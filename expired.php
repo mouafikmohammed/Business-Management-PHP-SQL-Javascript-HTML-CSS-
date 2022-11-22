@@ -9,8 +9,13 @@ session_start();
 
    # ------------- code for Table -------------------- 
    $expcon = mysqli_query($con,"select * from expired");
-   $rowexp = mysqli_fetch_array($expcon);
-   $exp_date= date("Y-m-d",strtotime('-'.$rowexp['expired'].' day'));
+   if(mysqli_num_rows($expcon) > 0){
+      $rowexp = mysqli_fetch_array($expcon);
+      $time = $rowexp['expired'];
+   }else{
+      $time = 10000;
+   }
+   $exp_date= date("Y-m-d",strtotime('-'.$time.' day'));
    
    $res= mysqli_query($con,"select * from purchase where date between '2000-07-02' and '$exp_date' ");
 ?>
@@ -39,6 +44,7 @@ session_start();
             <li><a  href="note.php"><img class="fas"src="icons/contacts.svg">Notes</a></li>
             <li><a href="purchase.php"><img class="fas"src="icons/buy.svg">Purchase</a></li>
             <li><a href="sells.php"><img class="fas"src="icons/sells.svg">Sells</a></li>
+            <li><a href="sold.php"><img class="fas"src="icons/sells.svg">Sold</a></li>
             <li><a href="stock.php"><img class="fas"src="icons/stock.svg">Stock</a></li>
             <li class="active"><a href="expired.php"><img class="fas"src="icons/expired.svg">Expired Products</a></li>
             <li><a href="logout.php"><img class="fas"src="icons/logout.svg">Logout</a></li>
