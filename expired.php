@@ -9,8 +9,13 @@ session_start();
 
    # ------------- code for Table -------------------- 
    $expcon = mysqli_query($con,"select * from expired");
-   $rowexp = mysqli_fetch_array($expcon);
-   $exp_date= date("Y-m-d",strtotime('-'.$rowexp['expired'].' day'));
+   if(mysqli_num_rows($expcon) > 0){
+      $rowexp = mysqli_fetch_array($expcon);
+      $time = $rowexp['expired'];
+   }else{
+      $time = 10000;
+   }
+   $exp_date= date("Y-m-d",strtotime('-'.$time.' day'));
    
    $res= mysqli_query($con,"select * from purchase where date between '2000-07-02' and '$exp_date' ");
 ?>
