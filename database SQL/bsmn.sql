@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 15, 2022 at 12:02 PM
+-- Generation Time: Nov 22, 2022 at 05:46 PM
 -- Server version: 10.4.24-MariaDB
 -- PHP Version: 8.1.6
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `bsmn`
+-- Database: `bsmn-med`
 --
 
 -- --------------------------------------------------------
@@ -35,15 +35,6 @@ CREATE TABLE `contacts` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `contacts`
---
-
-INSERT INTO `contacts` (`id`, `name`, `email`, `phone`, `date`) VALUES
-(5, 'bcbcb', 'bcbcb@bcbbc.ncn', '0634826684', '2022-09-26 08:04:58'),
-(6, 'Adan Jacksen', 'adan@con.uk', '+1768983462', '2022-09-27 12:50:46'),
-(8, 'Something', 'h@gmail.co', '+55555555', '2022-09-27 14:46:49');
-
 -- --------------------------------------------------------
 
 --
@@ -55,13 +46,6 @@ CREATE TABLE `expired` (
   `expired` int(10) NOT NULL,
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `expired`
---
-
-INSERT INTO `expired` (`id`, `expired`, `date`) VALUES
-(10, 5, '2022-11-15 08:57:55');
 
 -- --------------------------------------------------------
 
@@ -90,13 +74,22 @@ CREATE TABLE `notes` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `notes`
+-- Table structure for table `ptrash`
 --
 
-INSERT INTO `notes` (`id`, `subject`, `note`, `date`) VALUES
-(5, 'Buy more HP PCs', 'tttt ssh hhh exapmllllllllll jjjjj nnnn', '2022-09-27 14:41:21'),
-(6, 'XXXXX', 'VVVVV VVVVV VVVV vvvvv vvvv vvvv vvvv vvv vvvvvv vvvvvvvv vvvv', '2022-09-27 14:47:31');
+CREATE TABLE `ptrash` (
+  `id` bigint(20) NOT NULL,
+  `reference` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `quantity` bigint(20) NOT NULL,
+  `price` bigint(20) NOT NULL,
+  `companyname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -115,15 +108,6 @@ CREATE TABLE `purchase` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
---
--- Dumping data for table `purchase`
---
-
-INSERT INTO `purchase` (`id`, `reference`, `name`, `quantity`, `price`, `companyname`, `email`, `date`) VALUES
-(12, 'KSH-77', 'IPHONE 11', 6, 400, 'Apple', 'apple@gmail.com', '2022-11-09 13:01:21'),
-(13, '8LM01', 'HP Elitebook', 4, 200, 'HP', 'hp@contact.com', '2022-11-14 14:25:35'),
-(14, 'Z-et6', 'Redmi Phone', 23, 230, 'Redmi', 'redmi@rr.co', '2022-11-14 14:53:28');
-
 -- --------------------------------------------------------
 
 --
@@ -141,13 +125,22 @@ CREATE TABLE `sells` (
   `date` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+-- --------------------------------------------------------
+
 --
--- Dumping data for table `sells`
+-- Table structure for table `strash`
 --
 
-INSERT INTO `sells` (`id`, `reference`, `name`, `quantity`, `price`, `companyname`, `email`, `date`) VALUES
-(5, 'ABC', 'ABC phone', 5, 450, 'Abc', 'abc@mail.com', '2022-11-14 15:16:17'),
-(6, 'EE90K', 'LG TV', 4, 600, 'LG', 'lg@contact.com', '2022-11-14 15:17:17');
+CREATE TABLE `strash` (
+  `id` bigint(20) NOT NULL,
+  `reference` varchar(100) NOT NULL,
+  `name` varchar(100) NOT NULL,
+  `quantity` bigint(20) NOT NULL,
+  `price` bigint(20) NOT NULL,
+  `companyname` varchar(100) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `date` datetime NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -168,7 +161,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `user_id`, `user_name`, `password`, `date`) VALUES
-(4, 7459, 'test', 'qq', '2022-11-15 11:02:02');
+(4, 7459, 'test', 'tt', '2022-11-18 22:58:53');
 
 --
 -- Indexes for dumped tables
@@ -206,6 +199,12 @@ ALTER TABLE `notes`
   ADD KEY `date` (`date`);
 
 --
+-- Indexes for table `ptrash`
+--
+ALTER TABLE `ptrash`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `purchase`
 --
 ALTER TABLE `purchase`
@@ -228,6 +227,12 @@ ALTER TABLE `sells`
   ADD KEY `date` (`date`);
 
 --
+-- Indexes for table `strash`
+--
+ALTER TABLE `strash`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
@@ -244,37 +249,43 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT for table `contacts`
 --
 ALTER TABLE `contacts`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `expired`
 --
 ALTER TABLE `expired`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `gmail`
 --
 ALTER TABLE `gmail`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `notes`
 --
 ALTER TABLE `notes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `ptrash`
+--
+ALTER TABLE `ptrash`
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79;
 
 --
 -- AUTO_INCREMENT for table `purchase`
 --
 ALTER TABLE `purchase`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=81;
 
 --
 -- AUTO_INCREMENT for table `sells`
 --
 ALTER TABLE `sells`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=33;
 
 --
 -- AUTO_INCREMENT for table `users`
