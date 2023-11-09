@@ -66,4 +66,4 @@ $dompdf->render();
 $dompdf->addInfo("Title","PDF Buy/Purchase");
 $a = $_POST['8'];
 
-$dompdf->stream("$a.pdf",["Attachment" => 0]); // ,["Attachment" => 0]
+$dompdf->stream("$a.pdf"); // ,["Attachment" => 0]

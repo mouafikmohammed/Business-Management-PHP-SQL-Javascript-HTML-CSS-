@@ -56,9 +56,9 @@ session_start();
    <div id="background">
       <img src="img/backgroud.jpg" class="stretch" alt="" />
    </div>
-   <div class="logoborder">
+   <!-- <div class="logoborder">
       <img class="logo" src="img/logo.png" alt="logo">
-   </div>
+   </div> -->
 
    <div class="border">
       <form method="post">
@@ -69,8 +69,8 @@ session_start();
          <input class="inputpass" type="password" placeholder="Password" name="password">
 
          <input type="submit" class="loginbutton" value="Login">
-         <p class="not">Don't have an account?</p>
-			<p class="admin">Ask admin for username and password</p>
+         <!-- <p class="not">Don't have an account?</p> -->
+			<p class="admin">Username/Password in Docs</p>
           <!-- <a href="signup.php" class="signupbutton">Signup</a> -->
       </form>
    </div>

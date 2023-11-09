@@ -68,4 +68,4 @@ $dompdf->addInfo("Title","PDF Buy/Purchase");
 $a = $rowb['id'];
 $b = $rowb['name'];
 
-$dompdf->stream("$b-purchase-$a.pdf",["Attachment" => 0]); // ,["Attachment" => 0]
+$dompdf->stream("$b-purchase-$a.pdf"); // ,["Attachment" => 0]
