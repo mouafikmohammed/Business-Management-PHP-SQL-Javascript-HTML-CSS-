@@ -50,22 +50,6 @@ session_start();
             <div class="card">
                <div class="content">
                   <div class="imgBx">
-                     <img src="img/lakbir.jpg" alt="lakbir">
-                  </div>
-                  <div class="contentBx">
-                     <h4>Mohammed Lakbir</h4>
-                     <h5>Full Stack Developer</h5>
-                  </div>
-                  <div class="sci">
-
-                     <a target="_blank" href="mailto:lakbirmohammed1@hotmail.com"><img src="icons/mail-64.png" class="fa" ></a>
-                     <a target="_blank" href="https://github.com/agentcoder1"><img src="icons/github.svg" class="fa" ></a>
-                  </div>
-               </div>
-            </div>
-            <div class="card">
-               <div class="content">
-                  <div class="imgBx">
                      <img src="img/med.jpg" alt="Mohammed Mouafk">
                   </div>
                   <div class="contentBx">
@@ -79,39 +63,7 @@ session_start();
                   </div>
                </div>
             </div>
-            <div class="card">
-               <div class="content">
-                  <div class="imgBx">
-                     <img src="img/karim.jpg" alt="karim">
-                  </div>
-                  <div class="contentBx">
-                     <h4>AbdeLkarim Adchar</h4>
-                     <h5>Front-end Developer</h5>
-                  </div>
-                  <div class="sci">
-                     <a target="_blank" href="https://www.linkedin.com/mwlite/in/abdelkarim-adchar-1112bb211"><img src="icons/linkedin.svg" class="fa"></a>
-                     <a target="_blank" href="mailto:abdek516@gmail.com"><img src="icons/mail-64.png" class="fa" ></a>
-                     <a target="_blank" href="https://github.com/FOX516"><img src="icons/github.svg" class="fa" ></a>
-                  </div>
-               </div>
-            </div>
-            <div class="card">
-               <div class="content">
-                  <div class="imgBx">
-                     <img src="img/mouad.jpg" alt="Mouad">
-                  </div>
-                  <div class="contentBx">
-                     <h4>Mouad Amrani Alaoui</h4>
-                     <h5>Full Stack Developer</h5>
-                  </div>
-                  <div class="sci">
-                     <a target="_blank" href="https://www.linkedin.com/in/mou-ad-56ab02194/"><img src="icons/linkedin.svg" class="fa"></a>
-                     <a target="_blank" href="mailto:mouad.a.a.m.maa@gmail.com"><img src="icons/mail-64.png" class="fa" ></a>
-                     <a target="_blank" href="https://github.com/Rineer"><img src="icons/github.svg" class="fa" ></a>
-                  </div>
-               </div>
-            </div>
-            <div class="card">
+            <!-- <div class="card">
                <div class="content">
                   <div class="imgBx">
                      <img src="img/ikram.jpg" alt="Ikram">
@@ -125,8 +77,8 @@ session_start();
                      <a href="https://github.com/IkrameAjana" target="_blank"><img src="icons/github.svg" class="fa" ></a>
                   </div>
                </div>
-            </div>
-            <div class="card">
+            </div> -->
+            <!-- <div class="card">
                <div class="content">
                   <div class="imgBx">
                      <img src="img/saad.jpg" alt="saad">
@@ -141,22 +93,7 @@ session_start();
                      <a target="_blank" href="https://github.com/kkevinho"><img src="icons/github.svg" class="fa" ></a>
                   </div>
                </div>
-            </div>
-            <div class="card">
-               <div class="content">
-                  <div class="imgBx">
-                     <img src="img/nour.jpg" alt="nour">
-                  </div>
-                  <div class="contentBx">
-                     <h4>Nour Moukrim</h4>
-                     <h5>Front-end Developer</h5>
-                  </div>
-                  <div class="sci">:
-                     <a target="_blank" href="mailto:moukrimnour@gmail.com"><img src="icons/mail-64.png" class="fa" ></a>
-                     <a target="_blank" href="https://github.com/nourmouk"><img src="icons/github.svg" class="fa" ></a>
-                  </div>
-               </div>
-            </div>
+            </div> -->
          </div>
       </div>
 </body>
